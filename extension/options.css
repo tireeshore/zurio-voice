@@ -1,0 +1,172 @@
+/* Zurio Voice — Einstellungsseite.
+   Bewusst schlicht und ohne fremde Bibliothek: Die Seite hat drei Einstellungen
+   und soll bei hellem wie dunklem Systemthema lesbar sein. */
+
+:root {
+  color-scheme: light dark;
+  --ink: #1c1c1e;
+  --ink-soft: #55555c;
+  --line: #d3d3d8;
+  --ground: #ffffff;
+  --sunken: #f6f6f7;
+  --accent: #2a5db0;
+  --alarm: #c0392b;
+  --ok: #1e7a45;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #ececef;
+    --ink-soft: #a5a5ad;
+    --line: #3a3a40;
+    --ground: #1c1c1e;
+    --sunken: #242427;
+    --accent: #7aa5e8;
+    --alarm: #ef7a6d;
+    --ok: #6cc48f;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+
+main {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin: 0 0 0.25rem;
+}
+
+h2 {
+  font-size: 1rem;
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.intro {
+  margin: 0 0 2rem;
+  color: var(--ink-soft);
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+.field {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--sunken);
+  color: var(--ink);
+  font: inherit;
+}
+
+input[type="text"]:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+input[type="text"].invalid {
+  border-color: var(--alarm);
+}
+
+.hint {
+  margin: 0.35rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+.error {
+  margin: 0.35rem 0 0;
+  color: var(--alarm);
+  font-size: 0.85rem;
+}
+
+.switch {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.switch input {
+  margin: 0.2rem 0 0;
+  flex: none;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 0.45rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #ffffff;
+  font: inherit;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.status {
+  font-size: 0.9rem;
+  color: var(--ok);
+}
+
+.status.alarm {
+  color: var(--alarm);
+}
+
+.notes {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.notes strong {
+  color: var(--ink);
+}
+
+.code-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+code {
+  padding: 0.25rem 0.45rem;
+  border-radius: 5px;
+  background: var(--sunken);
+  color: var(--ink);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}

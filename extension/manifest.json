@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "Zurio Voice",
+  "version": "0.6.4",
+  "description": "Ein Tastendruck öffnet einen leeren Chat bei ChatGPT oder Claude. Der gesprochene Ton geht an OpenAI beziehungsweise Anthropic, weil deren eigene Diktierfunktion benutzt wird.",
+  "minimum_chrome_version": "116",
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "permissions": [
+    "storage"
+  ],
+
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://claude.ai/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["https://chatgpt.com/*"],
+      "js": ["content/common.js", "content/chatgpt.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://claude.ai/*"],
+      "js": ["content/common.js", "content/claude.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+
+  "action": {
+    "default_title": "Zurio Voice"
+  },
+
+  "commands": {
+    "open-chatgpt": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y"
+      },
+      "description": "Neuen Chat bei ChatGPT öffnen",
+      "global": true
+    },
+    "open-claude": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+U",
+        "mac": "Command+Shift+U"
+      },
+      "description": "Neuen Chat bei Claude öffnen",
+      "global": true
+    }
+  }
+}

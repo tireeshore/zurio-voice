@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Zurio Voice — Einstellungen</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main>
+    <h1>Zurio Voice</h1>
+    <p class="intro">
+      Ein Tastendruck holt den Browser nach vorne, öffnet einen leeren Chat,
+      setzt den Cursor ins Eingabefeld und startet das Diktat.
+    </p>
+
+    <form id="settings-form">
+      <section>
+        <h2>ChatGPT</h2>
+
+        <label class="field" for="chatgpt-url">Zieladresse</label>
+        <input type="text" id="chatgpt-url" spellcheck="false" autocomplete="off">
+        <p class="hint">Muss bei chatgpt.com liegen. Standard: https://chatgpt.com/</p>
+        <p class="error" id="chatgpt-url-error" hidden></p>
+
+        <label class="switch">
+          <input type="checkbox" id="chatgpt-dictation">
+          <span>Diktat automatisch starten</span>
+        </label>
+        <p class="hint">Aus: Der Cursor steht im Feld, das Mikrofon startest du selbst.</p>
+      </section>
+
+      <section>
+        <h2>Claude</h2>
+
+        <label class="field" for="claude-url">Zieladresse</label>
+        <input type="text" id="claude-url" spellcheck="false" autocomplete="off">
+        <p class="hint">Muss bei claude.ai liegen. Standard: https://claude.ai/new</p>
+        <p class="error" id="claude-url-error" hidden></p>
+
+        <label class="switch">
+          <input type="checkbox" id="claude-dictation">
+          <span>Diktat automatisch starten</span>
+        </label>
+        <p class="hint">Aus: Der Cursor steht im Feld, das Mikrofon startest du selbst.</p>
+      </section>
+
+      <section>
+        <h2>Tabs</h2>
+
+        <label class="switch">
+          <input type="radio" name="tab-mode" id="tab-new" value="new">
+          <span>Jedes Mal einen neuen Tab öffnen</span>
+        </label>
+
+        <label class="switch">
+          <input type="radio" name="tab-mode" id="tab-reuse" value="reuse">
+          <span>Einen schon offenen Tab des Anbieters wiederverwenden</span>
+        </label>
+        <p class="hint">
+          Wiederverwenden heißt: Ist der Anbieter irgendwo offen, wird dieser Tab
+          nach vorne geholt und auf die Zieladresse gesetzt. Ein dort noch nicht
+          abgeschickter Text geht dabei verloren.
+        </p>
+      </section>
+
+      <div class="actions">
+        <button type="submit" id="save">Speichern</button>
+        <button type="button" id="reset" class="secondary">Standardwerte</button>
+        <span class="status" id="status" role="status"></span>
+      </div>
+    </form>
+
+    <section class="notes">
+      <h2>Gut zu wissen</h2>
+      <p>
+        <strong>Tastenkombinationen.</strong> Sie stehen nicht hier, sondern in
+        der Tastenverwaltung des Browsers. Adresse kopieren und in die
+        Adresszeile einfügen — Links dorthin funktionieren nicht:
+      </p>
+      <p class="code-row">
+        <code id="shortcut-url"></code>
+        <button type="button" id="copy-shortcut-url" class="secondary">Kopieren</button>
+      </p>
+      <p>
+        Beide Kürzel müssen dort auf <strong>Global</strong> stehen, sonst wirken
+        sie nur, wenn der Browser ohnehin vorne ist.
+      </p>
+      <p>
+        <strong>Wohin der gesprochene Ton geht.</strong> Zurio Voice hört nicht
+        mit und nimmt nichts auf. Es drückt nur den Diktierknopf der jeweiligen
+        Seite. Der Ton geht deshalb an OpenAI beziehungsweise Anthropic, so wie
+        beim Klicken von Hand auch. Gespeichert werden hier ausschließlich diese
+        Einstellungen, und sie bleiben in diesem Browser.
+      </p>
+    </section>
+  </main>
+
+  <script src="settings.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
