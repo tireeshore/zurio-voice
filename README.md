@@ -4,11 +4,15 @@ Ein Tastendruck, dann sprechen.
 
 Zurio Voice ist eine Browser-Erweiterung. Auf ein Tastenkürzel hin erledigt sie
 vier Handgriffe: Browser nach vorne holen, neuen Chat bei ChatGPT oder Claude
-öffnen, den Schreibcursor ins Eingabefeld setzen, die Diktierfunktion der Seite
-starten. Danach kannst du sofort loslegen.
+öffnen (oder einen bereits geöffneten Tab verwenden), den Schreibcursor ins
+Eingabefeld setzen, die Diktierfunktion der Seite starten. Danach kannst du
+sofort loslegen. Zum Beispiel so:
 
 - `⌘⇧Y` → neuer Chat bei ChatGPT
 - `⌘⇧U` → neuer Chat bei Claude
+
+Welche Tasten das sind, legst du bei der Installation selbst fest. Die beiden
+oben sind nur Beispiele.
 
 Abgeschickt wird nichts. Return drückst du selbst.
 
@@ -47,8 +51,8 @@ Entwickelt und geprüft wurde mit Brave auf macOS.
 
 ## Installation
 
-Fünf Schritte. Schritt 3 ist der wichtigste — ohne ihn scheint die Erweiterung
-gar nichts zu tun.
+Fünf Schritte. Schritt 3 ist der wichtigste: Ohne ihn reagiert die Erweiterung
+auf kein Tastenkürzel.
 
 ### 1. Ordner holen
 
@@ -64,8 +68,8 @@ Erweiterung auf zu arbeiten.
    `chrome://extensions/`, bei Edge `edge://extensions/` und so weiter.
 2. Oben rechts den **Entwicklermodus** einschalten.
 3. Auf **Entpackte Erweiterung laden** klicken.
-4. Im Ordner, den du entpackt hast, den Unterordner **`extension`** auswählen —
-   nicht den äußeren Ordner. Der richtige ist der, in dem `manifest.json` liegt.
+4. Im Ordner, den du entpackt hast, den Unterordner **`extension`** auswählen
+   (der richtige ist der, in dem `manifest.json` liegt).
 
 Zurio Voice erscheint jetzt in der Liste. Der Entwicklermodus muss
 eingeschaltet bleiben.
@@ -93,15 +97,15 @@ Programm belegt.
 
 ### 4. Einmal ausprobieren und das Mikrofon erlauben
 
-In ein beliebiges anderes Programm wechseln und `⌘⇧U` drücken.
+In ein beliebiges anderes Programm wechseln und das festgelegte Tastenkürzel
+drücken.
 
-Der Browser kommt nach vorne, ein leerer Claude-Chat öffnet sich, der Cursor
-steht im Feld. Beim allerersten Mal fragt der Browser, ob die Seite dein
-Mikrofon benutzen darf — auf **Zulassen** klicken. Diese Frage kommt nur
-einmal je Anbieter und gilt danach dauerhaft, auch nach einem Neustart des
-Rechners.
+Der Browser kommt nach vorne, ein leerer Chat öffnet sich, der Cursor steht im
+Feld. Beim allerersten Mal fragt der Browser, ob die Seite dein Mikrofon
+benutzen darf — auf **Zulassen** klicken. Diese Frage kommt nur einmal je
+Anbieter und gilt danach dauerhaft, auch nach einem Neustart des Rechners.
 
-Dann dasselbe mit `⌘⇧Y` für ChatGPT.
+Dann dasselbe mit dem Kürzel für den anderen Anbieter.
 
 ### 5. Einstellungen ansehen (freiwillig)
 
@@ -114,17 +118,13 @@ Einstellungen. Die Standardwerte passen für den normalen Gebrauch.
 |---|---|
 | **Zieladresse** je Anbieter | Welche Seite das Kürzel öffnet. Muss bei `chatgpt.com` beziehungsweise `claude.ai` liegen; eine andere Adresse wird abgewiesen, weil Zurio Voice dort keinen Zugriff hätte. So lässt sich auch ein bestimmtes Projekt ansteuern. |
 | **Diktat automatisch starten** je Anbieter | Aus: Der Cursor steht im Feld, das Mikrofon startest du selbst. |
-| **Tabs** | Jedes Mal einen neuen Tab öffnen, oder einen schon offenen Tab des Anbieters wiederverwenden. Beim Wiederverwenden geht ein dort noch nicht abgeschickter Text verloren. |
-
-Änderungen gelten ab dem nächsten Tastendruck und bleiben nach einem Neustart
-des Browsers erhalten.
+| **Tabs** | Jedes Mal einen neuen Tab öffnen, oder einen schon offenen Tab des Anbieters wiederverwenden. Achtung: Beim Wiederverwenden geht ein dort noch nicht abgeschickter Text verloren. |
 
 ## Wenn etwas nicht klappt
 
-Zurio Voice meldet sich, wenn es nicht weiterkommt: als weißer Kasten oben
-mitten auf der Seite und als rotes Ausrufezeichen am Symbol in der
-Werkzeugleiste. Fahre mit der Maus über das Symbol, dann steht dort, woran es
-lag.
+Zurio Voice meldet dir Fehler und Störungen: als Fehlermeldung oben auf deiner
+Browserseite und/oder als rotes Ausrufezeichen am Symbol in der Werkzeugleiste.
+Fahre mit der Maus über das Symbol, um mehr über den Fehler zu erfahren.
 
 | Meldung | Was zu tun ist |
 |---|---|
@@ -146,10 +146,6 @@ lag.
    Browser bei **Bedienungshilfen** oder **Eingabeüberwachung** eingetragen und
    eingeschaltet ist. Auf dem Entwicklungsrechner war das nicht nötig, auf
    einem frisch aufgesetzten Mac kann es sein.
-
-**Der Cursor steht im Feld, aber das Mikrofon läuft nicht.** Das ist das
-gewollte Rückfallverhalten: Lieber tippen können als gar nichts. Der Kasten auf
-der Seite sagt, woran es lag.
 
 ## Etwas melden
 
