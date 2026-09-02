@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Zurio Voice",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Ein Tastendruck öffnet einen leeren Chat bei ChatGPT oder Claude. Der gesprochene Ton geht an OpenAI beziehungsweise Anthropic, weil deren eigene Diktierfunktion benutzt wird.",
   "minimum_chrome_version": "116",
 
