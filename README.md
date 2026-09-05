@@ -1,136 +1,146 @@
 # Zurio Voice
 
-**Ein Tastendruck, dann sprechen.** Zurio Voice öffnet aus jedem Programm
-heraus einen leeren Chat bei ChatGPT oder Claude, setzt den Cursor ins Feld und
-startet das Diktat — damit zwischen Gedanke und Sprechen nichts mehr liegt als
-eine Taste.
+Zurio Voice ist eine Browser-Erweiterung. Auf ein systemweites Tastenkürzel hin
+öffnet sie einen leeren Chat bei ChatGPT oder Claude, setzt den Cursor ins
+Eingabefeld und startet die Diktierfunktion der Seite. Ziel ist der Weg vom
+beliebigen Programm zur Spracheingabe in einem Schritt statt in vieren.
 
-- `⌘⇧Y` → neuer Chat bei ChatGPT
-- `⌘⇧U` → neuer Chat bei Claude
+- `⌘⇧Y` öffnet einen neuen Chat bei ChatGPT
+- `⌘⇧U` öffnet einen neuen Chat bei Claude
 
-Die Tasten legst du selbst fest; die beiden sind Beispiele. Abgeschickt wird
-nichts — Return drückst du.
+Die Tastenkombinationen werden bei der Installation selbst festgelegt; die
+beiden genannten sind Beispiele. Der Prompt wird nicht abgeschickt.
 
-## Was Zurio Voice nicht tut
+## Funktionsumfang
 
-Kein Mangel, sondern der Zweck:
+Zurio Voice nimmt keinen Ton auf und erkennt keine Sprache. Sie betätigt den
+Diktierknopf der jeweiligen Seite.
 
-- Keine eigene Aufnahme, keine eigene Spracherkennung. Es drückt den
-  Diktierknopf der Seite, mehr nicht.
-- Kein Speichern von Text, Ton oder Verlauf. Nur deine Einstellungen, und die
-  bleiben im Browser.
-- Kein automatisches Absenden.
-- Kein Zugriff auf markierten Text, Zwischenablage oder Bildschirm.
-- Zugriffsrechte auf genau zwei Adressen: `chatgpt.com` und `claude.ai`.
-- Keine Telemetrie, keine Analysedienste, kein Aufruf an Dritte.
+Nicht enthalten sind:
 
-**Wohin der Ton geht:** an OpenAI beziehungsweise Anthropic — genau wie beim
-Klick auf deren Diktierknopf. Zurio Voice sitzt nicht dazwischen.
+- Speichern von Text, Ton oder Verlauf. Gespeichert werden ausschließlich die
+  Einstellungen, im Browser.
+- automatisches Absenden des Prompts
+- Zugriff auf markierten Text, Zwischenablage oder Bildschirminhalt
+- Zugriff auf andere Adressen als `chatgpt.com` und `claude.ai`
+- Telemetrie, Analysedienste, Netzwerkaufrufe an Dritte
+
+## Datenverarbeitung
+
+Der gesprochene Ton geht an OpenAI beziehungsweise Anthropic, da deren eigene
+Diktierfunktion verwendet wird. Das entspricht dem manuellen Klick auf den
+Diktierknopf. Zurio Voice verarbeitet den Ton nicht.
 
 ## Voraussetzungen
 
-- **Browser der Chrome-Familie** (Brave, Chrome, Edge, Vivaldi, Opera). Firefox
-  und Safari können keine systemweiten Kürzel für Erweiterungen.
-- **Browser läuft.** Minimiert genügt, geschlossen nicht.
-- **Konto bei ChatGPT oder Claude**, in diesem Browser angemeldet.
+- Browser der Chrome-Familie: Brave, Chrome, Edge, Vivaldi oder Opera. Firefox
+  und Safari unterstützen keine systemweiten Kürzel für Erweiterungen.
+- Der Browser muss laufen. Minimiert oder im Hintergrund ist ausreichend.
+- Ein Konto bei ChatGPT oder Claude, in diesem Browser angemeldet.
 
-Entwickelt und geprüft mit Brave auf macOS.
+Entwickelt und geprüft mit Brave unter macOS.
 
 ## Installation
 
-### 1. Ordner holen
+### 1. Dateien herunterladen
 
-Auf <https://github.com/tireeshore/zurio-voice> über **Code → Download ZIP**
-laden und entpacken. Der Ordner muss an seinem Platz bleiben — wird er
-verschoben oder gelöscht, hört die Erweiterung auf zu arbeiten.
+Unter <https://github.com/tireeshore/zurio-voice> über **Code → Download ZIP**
+laden und entpacken. Der Ordner muss dauerhaft an seinem Platz bleiben; wird er
+verschoben oder gelöscht, ist die Erweiterung nicht mehr funktionsfähig.
 
 ### 2. Erweiterung laden
 
 1. `brave://extensions/` aufrufen (Chrome: `chrome://extensions/`, Edge:
    `edge://extensions/`).
-2. Oben rechts **Entwicklermodus** einschalten. Er muss eingeschaltet bleiben.
-3. **Entpackte Erweiterung laden** → den Unterordner **`extension`** wählen
-   (der mit `manifest.json`).
+2. Oben rechts den **Entwicklermodus** einschalten. Er muss eingeschaltet
+   bleiben.
+3. **Entpackte Erweiterung laden** wählen und den Unterordner **`extension`**
+   auswählen, in dem `manifest.json` liegt.
 
-### 3. Kürzel eintragen und auf „Global" stellen
+### 3. Tastenkürzel eintragen und auf „Global" stellen
 
-Ohne diesen Schritt reagiert die Erweiterung auf keine Taste. Der Browser macht
-ihn nicht von allein.
+Dieser Schritt wird vom Browser nicht automatisch ausgeführt. Ohne ihn reagiert
+die Erweiterung auf kein Tastenkürzel.
 
-1. `brave://extensions/shortcuts` aufrufen. Die für deinen Browser richtige
-   Adresse steht auch auf der Einstellungsseite von Zurio Voice.
-2. Bei **„Neuen Chat bei ChatGPT öffnen"** aufs Stiftsymbol, `⌘⇧Y` drücken.
-3. Rechts daneben von „In Brave" auf **„Global"** stellen. Nur so wirkt das
-   Kürzel, wenn ein anderes Programm vorne ist.
-4. Dasselbe für **„Neuen Chat bei Claude öffnen"** mit `⌘⇧U`.
+1. `brave://extensions/shortcuts` aufrufen. Die für den jeweiligen Browser
+   gültige Adresse steht auch auf der Einstellungsseite von Zurio Voice.
+2. Bei **„Neuen Chat bei ChatGPT öffnen"** auf das Stiftsymbol klicken und
+   `⌘⇧Y` drücken.
+3. Das Auswahlfeld rechts daneben von „In Brave" auf **„Global"** stellen. Nur
+   mit dieser Einstellung wirkt das Kürzel, während ein anderes Programm im
+   Vordergrund ist.
+4. Für **„Neuen Chat bei Claude öffnen"** mit `⌘⇧U` wiederholen.
 
-Andere Tasten sind möglich — nimm eine Kombination, die kein anderes Programm
-belegt.
+Andere Tastenkombinationen sind möglich, sofern sie nicht bereits von einem
+anderen Programm belegt sind.
 
-### 4. Ausprobieren, Mikrofon erlauben
+### 4. Funktion prüfen und Mikrofon freigeben
 
-In ein anderes Programm wechseln, Kürzel drücken. Der Browser kommt nach vorne,
-ein leerer Chat öffnet sich, der Cursor steht im Feld. Beim ersten Mal fragt der
-Browser nach dem Mikrofon → **Zulassen**. Die Frage kommt einmal je Anbieter und
-gilt dauerhaft.
+In ein anderes Programm wechseln und das Kürzel drücken. Der Browser kommt in
+den Vordergrund, ein leerer Chat öffnet sich, der Cursor steht im Eingabefeld.
+Beim ersten Aufruf fragt der Browser nach der Mikrofonberechtigung; diese
+Abfrage erfolgt einmal je Anbieter und gilt anschließend dauerhaft.
 
-Dann dasselbe für den zweiten Anbieter.
+Anschließend mit dem Kürzel des zweiten Anbieters wiederholen.
 
-### 5. Einstellungen (freiwillig)
+### 5. Einstellungen prüfen (optional)
 
-Klick auf das Zurio-Voice-Symbol in der Werkzeugleiste. Die Standardwerte passen
-für den normalen Gebrauch.
+Ein Klick auf das Symbol in der Werkzeugleiste öffnet die Einstellungen. Die
+Standardwerte sind für den Regelfall geeignet.
 
 ## Einstellungen
 
 | Einstellung | Wirkung |
 |---|---|
-| **Zieladresse** je Anbieter | Welche Seite das Kürzel öffnet — so lässt sich auch ein bestimmtes Projekt ansteuern. Muss bei `chatgpt.com` beziehungsweise `claude.ai` liegen. |
-| **Diktat automatisch starten** je Anbieter | Aus: Der Cursor steht im Feld, das Mikrofon startest du selbst. |
-| **Tabs** | Neuer Tab je Aufruf, oder offenen Tab wiederverwenden. Beim Wiederverwenden geht dort nicht abgeschickter Text verloren. |
+| **Zieladresse** je Anbieter | Bestimmt, welche Seite das Kürzel öffnet, und erlaubt damit auch das Ansteuern eines bestimmten Projekts. Die Adresse muss innerhalb von `chatgpt.com` beziehungsweise `claude.ai` liegen. |
+| **Diktat automatisch starten** je Anbieter | Ausgeschaltet: Der Cursor wird im Eingabefeld gesetzt, das Mikrofon wird nicht gestartet. |
+| **Tabs** | Je Aufruf einen neuen Tab öffnen oder einen bereits offenen Tab des Anbieters wiederverwenden. Beim Wiederverwenden geht dort nicht abgeschickter Text verloren. |
 
-## Wenn etwas nicht klappt
+## Fehlerbehebung
 
-Störungen erscheinen als Meldung oben auf der Seite und als rotes
-Ausrufezeichen am Symbol. Mit der Maus über das Symbol fahren zeigt mehr.
+Störungen werden als Meldung oben auf der Seite und als rotes Ausrufezeichen am
+Symbol in der Werkzeugleiste angezeigt. Der Mauszeiger über dem Symbol zeigt
+Einzelheiten.
 
-| Meldung | Was tun |
+| Meldung | Ursache und Abhilfe |
 |---|---|
-| **Du bist nicht angemeldet** | Anmelden, Kürzel erneut drücken. |
+| **Du bist nicht angemeldet** | Beim Anbieter anmelden und das Kürzel erneut drücken. |
 | **Keine Internetverbindung** | Verbindung herstellen. |
-| **Das Mikrofon ist blockiert** | In der Adresszeile auf das Symbol vor der Adresse, Mikrofon auf „Zulassen", Seite neu laden. |
-| **Das Diktat ist nicht angesprungen** | Der Cursor steht im Feld. Tippen oder Diktierknopf selbst drücken. |
-| **Das Eingabefeld war nicht zu finden** | Der Anbieter hat die Oberfläche geändert — bitte melden. |
+| **Das Mikrofon ist blockiert** | In der Adresszeile auf das Symbol vor der Adresse klicken, Mikrofon auf „Zulassen" setzen, Seite neu laden. |
+| **Das Diktat ist nicht angesprungen** | Der Cursor steht im Eingabefeld. Tippen oder den Diktierknopf manuell betätigen. |
+| **Das Eingabefeld war nicht zu finden** | Der Anbieter hat seine Oberfläche geändert. Bitte melden, siehe unten. |
 
-**Das Kürzel bewirkt gar nichts.** Der Reihe nach:
+Reagiert die Erweiterung auf das Kürzel überhaupt nicht, der Reihe nach prüfen:
 
-1. Läuft der Browser? Hintergrund ist in Ordnung, geschlossen nicht.
-2. Steht unter `brave://extensions/shortcuts` bei beiden Zeilen eine Taste
-   **und** rechts „Global"? Mit Abstand der häufigste Grund.
-3. Belegt ein anderes Programm dieselbe Kombination?
-4. Nur macOS, nur wenn 2 und 3 stimmen: **Systemeinstellungen → Datenschutz &
-   Sicherheit** prüfen, ob der Browser bei **Bedienungshilfen** oder
-   **Eingabeüberwachung** eingetragen und eingeschaltet ist.
+1. Läuft der Browser? Im Hintergrund ist ausreichend, geschlossen nicht.
+2. Ist unter `brave://extensions/shortcuts` bei beiden Einträgen eine Taste
+   hinterlegt und rechts „Global" eingestellt? Dies ist die häufigste Ursache.
+3. Ist die Kombination bereits von einem anderen Programm belegt?
+4. Nur unter macOS und nur, wenn Punkt 2 und 3 zutreffen: unter
+   **Systemeinstellungen → Datenschutz & Sicherheit** prüfen, ob der Browser
+   bei **Bedienungshilfen** oder **Eingabeüberwachung** eingetragen und
+   aktiviert ist.
 
-## Melden
+## Fehler melden
 
-Ändert ein Anbieter seine Oberfläche, findet Zurio Voice Eingabefeld oder
-Diktierknopf nicht mehr. Die Erweiterung schreibt dann selbst auf, was sie
-stattdessen vorgefunden hat:
+Ändert ein Anbieter seine Oberfläche, findet die Erweiterung das Eingabefeld
+oder den Diktierknopf nicht mehr. Sie protokolliert in diesem Fall, was sie
+stattdessen vorgefunden hat.
 
-Rechtsklick → **Untersuchen** → Reiter **Console** → im Suchfeld `Zurio Voice`.
-Die gefundenen Zeilen kopieren und mitschicken an
-<https://github.com/tireeshore/zurio-voice/issues>.
+Rechtsklick auf der Seite → **Untersuchen** → Reiter **Console** → im Suchfeld
+`Zurio Voice` eingeben. Die gefundenen Zeilen kopieren und dem Bericht unter
+<https://github.com/tireeshore/zurio-voice/issues> beifügen.
 
 ## Aktualisieren und Entfernen
 
-**Aktualisieren:** Neues ZIP laden, alten Ordner ersetzen, unter
-`brave://extensions/` den Neuladen-Pfeil klicken. Kürzel, Mikrofonerlaubnis und
-Einstellungen bleiben.
+**Aktualisieren:** Aktuelles ZIP herunterladen, den bisherigen Ordner ersetzen
+und unter `brave://extensions/` den Neuladen-Pfeil klicken. Tastenkürzel,
+Mikrofonberechtigung und Einstellungen bleiben erhalten.
 
-**Entfernen:** Unter `brave://extensions/` auf **Entfernen**. Die gespeicherten
-Einstellungen verschwinden mit; der entpackte Ordner kann gelöscht werden.
+**Entfernen:** Unter `brave://extensions/` auf **Entfernen** klicken. Die
+gespeicherten Einstellungen werden dabei gelöscht. Der entpackte Ordner kann
+anschließend entfernt werden.
 
 ## Lizenz
 
-MIT — siehe [LICENSE](LICENSE).
+MIT, siehe [LICENSE](LICENSE).
